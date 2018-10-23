@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>cnjc3</title>
+  <script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+</head>
+<body>
+
+<div id="app">
+  千米:<input type="text" v-model="qm"/>
+  米:<input type="text" v-model="m"/>
+  <br><br>
+  <span v-if="seem">修改之前的值为：{{bm}},修改后的值为：{{qm}}</span>
+</div>
+
+<script type="text/javascript">
+  var vm = new Vue({
+    el: "#app",
+    data: {
+      qm: 0,
+      m: 0,
+      bm: 0,
+      seem: false
+    },
+    watch: {
+      qm: function (val) {
+        this.qm = val
+        this.m = val * 1000
+
+      },
+      m: function (val) {
+        this.m = val
+        this.qm = val / 1000
+      }
+    }
+  });
+
+  vm.$watch("qm", function (n, o) {
+    this.bm = o
+    this.seem = true
+  })
+
+</script>
+
+</body>
+</html>

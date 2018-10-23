@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Vue 测试实例 - 菜鸟教程(runoob.com)</title>
+  <script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+</head>
+<body>
+
+<div id="app">
+  <p style="font-size: 25px">计数器 {{counter}}</p>
+  <button @click="counter++" style="font-size: 20px"> 点击我呀</button>
+  <p v-if="seem">new counter {{nc}}</p>
+  <p v-if="seem">old counter {{oc}}</p>
+</div>
+
+<script type="text/javascript">
+  var vm = new Vue({
+    el: "#app",
+    data: {
+      counter: 1,
+      seem: false,
+      nc: 1,
+      oc: 1
+    },
+  });
+  vm.$watch('counter', function (nd, od) {
+    this.seem = true,
+      this.nc = nd,
+      this.oc = od
+  });
+</script>
+
+</body>
+</html>

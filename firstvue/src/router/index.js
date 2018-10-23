@@ -5,7 +5,6 @@ import Router from 'vue-router'
 const Login = resolve => require(['@/components/Login'], resolve)
 const GetUserInfo = resolve => require(['@/components/GetUserInfo'], resolve)
 
-
 Vue.use(Router)
 
 export default new Router({
@@ -16,8 +15,8 @@ export default new Router({
       component: Login
     },
     {
-      path: '/user/getUserInfo',
-      name: '登录',
+      path: '/user/GetUserInfo',
+      name: '获取信息',
       component: GetUserInfo
     }
   ]

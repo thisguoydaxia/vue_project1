@@ -4,7 +4,11 @@
 
 <script>
     export default {
-        name: "GetUserInfo"
+      data () {
+        return {
+          msg: 'Hello Vue!!!!!!'
+        }
+      },
     }
 </script>
 
