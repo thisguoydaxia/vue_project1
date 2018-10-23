@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <style>
+    table {
+      border: 1px solid black;
+    }
+    table {
+      width: 30%;
+    }
+    th {
+      height: 50px;
+    }
+    th, td {
+      border-bottom: 1px solid #ddd;
+    }
+  </style>
+</head>
+<body>
+
+<div id="app">
+  <table>
+    <tr>
+      <th>序号</th>
+      <th>商品名称</th>
+      <th>商品价格</th>
+      <th>购买数量</th>
+      <th>操作</th>
+    </tr>
+    <tr v-for="iphone in phone_json">
+      <td>{{iphone.id}}</td>
+      <td>{{iphone.name}}</td>
+      <td>{{iphone.price}}</td>
+      <td>
+        <button @click="iphone.count -= 1">-</button>
+        {{iphone.count}}
+        <button @click="iphone.count += 1">+</button>
+      </td>
+      <td>
+        <button @click="iphone.count = 0">移除</button>
+      </td>
+    </tr>
+  </table>
+  总价：${{totalprice()}}
+</div>
+
+<script type="text/javascript">
+  var vm = new Vue({
+    el: "#app",
+    data: {
+      phone_json: [
+        {
+          id: 1,
+          name: "华为",
+          price: 1000,
+          count: 0
+        },
+        {
+          id: 2,
+          name: "诺基亚",
+          price: 2000,
+          count: 0
+        },
+        {
+          id: 3,
+          name: "小米",
+          price: 3000,
+          count: 0
+        }
+      ]
+    },
+    methods: {
+      totalprice: function () {
+        var total = 0;
+        for (var i = 0, len = this.phone_json.length; i < len; i++) {
+          total += this.phone_json[i].count * this.phone_json[i].price
+        }
+        return total
+      }
+    }
+  });
+</script>
+</body>
+</html>
