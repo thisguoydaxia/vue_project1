@@ -7,7 +7,11 @@
 </head>
 <body>
 <div id="app">
-  <p>单个复选框：</p>
+  <p>复选框单选：</p>
+  <input type="checkbox" v-model="checkbox1" id="checkbox1">
+  <label for="checkbox1">{{checkbox1}}</label>
+
+  <p>复选框全选：</p>
   <input type="checkbox" v-model="checkbox" id="checkbox">
   <label for="checkbox">{{checkbox}}</label>
 
@@ -26,8 +30,27 @@
   new Vue({
     el: "#app",
     data: {
+      checkbox1: false,
       checkbox: false,
-      checkboxs: []
+      checkboxs: [],
+      checkboxs2: ["Runoob", "Taobao", "Google"]
+    },
+    watch: {
+      checkboxs: function () {
+        if (this.checkboxs.length == this.checkboxs2.length) {
+          this.checkbox = true
+        } else {
+          this.checkbox = false
+        }
+      },
+      checkbox: function () {
+        if (this.checkbox) {
+          this.checkboxs = this.checkboxs2
+        } else {
+          this.checkboxs = []
+        }
+
+      }
     }
   })
 
