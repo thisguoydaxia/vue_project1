@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+
+</head>
+<body>
+
+<div id="app">
+  <input v-model="message">
+  <p>
+    <ccd v-bind:message="message"></ccd>
+  </p>
+
+
+  </p>
+
+</div>
+
+<script type="text/javascript">
+  Vue.component('ccd', {
+    props: ["message"],
+    template: '<span>{{message}}</span>'
+  })
+
+  new Vue({
+    el: "#app",
+    data: {
+      message: "这是父类组件"
+    }
+  })
+
+
+</script>
+
+
+</body>
+</html>

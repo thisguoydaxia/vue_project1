@@ -20,8 +20,8 @@
   <lable for="runoob">Runoob</lable>
   <input type="checkbox" v-model="checkboxs" value="Google" id="google">
   <label for="google">Google</label>
-  <input type="checkbox" v-model="checkboxs" value="taobao " id="taobao">
-  <lable for="taobao">taobao</lable>
+  <input type="checkbox" v-model="checkboxs" value="taobao" id="taobao">
+  <lable for="taobao">Taobao</lable>
   <p>选择的值为 {{checkboxs}}</p>
 
 </div>
@@ -33,7 +33,7 @@
       checkbox1: false,
       checkbox: false,
       checkboxs: [],
-      checkboxs2: ["Runoob", "Taobao", "Google"]
+      checkboxs2: ["Runoob", "taobao", "Google"]
     },
     watch: {
       checkboxs: function () {
