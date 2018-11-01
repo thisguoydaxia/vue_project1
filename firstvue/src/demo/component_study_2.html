@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+
+</head>
+<body>
+
+<div id="app">
+  <ol>
+    <mm v-for="item in site" v-bind:item="item"></mm>
+  </ol>
+</div>
+
+<script type="text/javascript">
+  var cc = {
+    props: ["item"],
+    template: '<li>{{item.text}}{{item.text1}}</li>'
+  }
+
+  new Vue({
+    el: "#app",
+    data: {
+      site: [
+        {text: 'Runoob', text1: 666},
+        {text: 'Google', text1: 666},
+        {text: 'Taobao', text1: 666}
+      ]
+    },
+    components: {
+      'mm': cc
+    }
+  })
+
+</script>
+
+</body>
+</html>

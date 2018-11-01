@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+
+</head>
+<body>
+<div id="app">
+
+  <input v-model="message">
+  <ss v-bind:pp="message"></ss>
+
+</div>
+<script type="text/javascript">
+  var cc = {
+    props: ["pp"],
+    template: "<span>{{pp}}</span>"
+  }
+  new Vue({
+    el: "#app",
+    data: {
+      message: "父组件内容1"
+    },
+    components: {
+      'ss': cc
+    }
+  })
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Vue 测试实例 - 菜鸟教程(runoob.com)</title>
+  <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+</head>
+<body>
+<div id="app">
+  <p>{{total}}</p>
+  <button-counter @increatement="incretament"></button-counter>
+  <button-counter @increatement="incretament"></button-counter>
+  <button-counter @increatement="incretament"></button-counter>
+</div>
+
+<script type="text/javascript">
+  var cm = {
+    template: "<button @click='incrementHandler'>{{counter}}</button>",
+    data: function () {
+      return {
+        counter: 0
+      }
+    },
+    methods: {
+      incrementHandler: function () {
+        this.counter += 1
+        this.$emit("increatement")
+      }
+    }
+  }
+  new Vue({
+    el: "#app",
+    data: {
+      total: 0
+    },
+    methods: {
+      incretament: function () {
+        this.total += 1
+      }
+    },
+    components: {
+      "button-counter": cm
+    }
+  })
+
+
+</script>
+
+
+</body>
+</html>

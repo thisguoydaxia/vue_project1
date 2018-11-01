@@ -7,34 +7,32 @@
 
 </head>
 <body>
-
 <div id="app">
-  <input v-model="message">
-  <p>
-    <ccd v-bind:message="message"></ccd>
-  </p>
-
-
-  </p>
-
+  <input v-cc>
+  <input v-mm>
 </div>
 
+
 <script type="text/javascript">
-  Vue.component('ccd', {
-    props: ["message"],
-    template: '<span>{{message}}</span>'
-  })
+  // Vue.directive('mm',{
+  //   inserted:function (el) {
+  //     el.focus()
+  //   }
+  // })
 
   new Vue({
     el: "#app",
-    data: {
-      message: "这是父类组件"
+    directives: {
+      cc: {
+        inserted: function (el) {
+          el.focus()
+        }
+      }
     }
   })
 
 
 </script>
-
 
 </body>
 </html>
